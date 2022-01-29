@@ -39,7 +39,7 @@ public class Caso implements Serializable {
 	public void setDelitos(Delito delitos) {
 		this.delitos = delitos;
 	}
-
+    
 	@Column(name = "fecha_hora")
 	private LocalDateTime fechaHora;
 	
