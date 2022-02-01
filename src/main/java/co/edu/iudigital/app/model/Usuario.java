@@ -14,9 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-
-
-
+import javax.validation.constraints.NotEmpty;
 
 import com.sun.istack.NotNull;
 @Entity
@@ -32,7 +30,7 @@ public class Usuario implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY )
 	private long id;
    
-    
+    @NotEmpty
     @NotNull
 	@Column(unique = true, length = 120)
 	private String Username;
