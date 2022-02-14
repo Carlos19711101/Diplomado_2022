@@ -14,8 +14,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sun.istack.NotNull;
 @Entity
 @Table(name = "usuarios")
@@ -112,18 +115,24 @@ public class Usuario implements Serializable {
    
     @NotEmpty
     @NotNull
+    @NotEmpty(message = "Email es obligatorio")
+	@Email(message = "Debe ingresar un email válido")
 	@Column(unique = true, length = 120)
 	private String Username;
 	
 	@Column(length = 120)
 	private String password;
 	
+	@NotEmpty(message = "nombre es obligatorio")
 	@Column(nullable = false, length = 120)
 	private String nombre;
 	
+	@NotEmpty(message = "apellido es obligatorio")
+	@Size(min = 1, max = 12, message = "Fuera de rango")
 	@Column(nullable = true, length = 120)
 	private String apellido;
 	
+	@JsonProperty("fecha_nacimiento")
 	@Column(name = "fecha_nacimiento")
 	private LocalDate fechaNacimiento;
 	

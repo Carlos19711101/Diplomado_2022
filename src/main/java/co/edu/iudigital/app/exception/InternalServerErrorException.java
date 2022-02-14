@@ -1,9 +1,6 @@
 package co.edu.iudigital.app.exception;
 
-/**
- * Exception de Capa de Backend en el Rest
- * 
- */
+
 public class InternalServerErrorException extends RestException{
     private static final long serialVersionUID = 1L;
     private String codigoError;
