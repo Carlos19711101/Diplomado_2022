@@ -2,6 +2,7 @@ package co.edu.iudigital.app.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,17 +21,29 @@ public class UsuarioServiceImpl implements IUsuarioService{
 
 	@Override
 	public List<UsuarioDto> ListUsers() throws RestException {
-		List<Usuario> usuarioDB = usuarioRepository.findAll();
-		List<UsuarioDto> usuario = new ArrayList<>();
-		usuarioDB.stream()
+		List<Usuario> usuariosDB = usuarioRepository.findAll();
+		List<UsuarioDto> usuarios = new ArrayList<>();
+		usuariosDB.stream()
 		         .forEach(u -> {
 		        	 UsuarioDto usuarioDto = new UsuarioDto();
 		        	 usuarioDto.setId(u.getId());
 		        	 usuarioDto.setNombre(u.getNombre());
 		        	 usuarioDto.setApellido(u.getApellido());
+		        	 usuarioDto.setUsername(u.getUsername());
+		        	 usuarioDto.setFechaNacimiento(u.getFechaNacimiento());
+		        	 usuarioDto.setEnabled(u.getEnabled());
+		        	 usuarioDto.setImagen(u.getImagen());
+		        
+		        	 List<String> rols = (u.getRoles()).stream()
+		        			                        .map(role -> role.getNombre())
+		        			                        .collect(Collectors.toList());
 		        	 
+		        	 usuarioDto.setRoles(rols);
+		        	 usuarios.add(usuarioDto);
 		        	 
 		         });
+		
+		return usuarios;
 		
 	}
 

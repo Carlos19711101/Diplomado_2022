@@ -26,7 +26,7 @@ public class SwaggerConfig {
 		return new Docket(DocumentationType.SWAGGER_2)
 				.select()
 				.apis(
-						RequestHandlerSelectors.basePackage("co.edu.iudigital.app.controller")
+				 RequestHandlerSelectors.basePackage("co.edu.iudigital.app.controller")
 				)
 				.paths(PathSelectors.any())
 				.build()
@@ -34,17 +34,17 @@ public class SwaggerConfig {
 	}
     private ApiInfo apiInfo() {
     	return new ApiInfo(
-    			"Api de HelpMe",
-    			"Api para la App HelpMe",
-    			"1.0",
-    			"htpps://iudigital.edu.co",
-    			new Contact(
-    					"carlos velez",
-    					"https://iudigital.edu.co",
-    					"carlos.velez@est.iudigital.edu.co"),
-    			"Apache 2.0",
-    			"https://www.apache.org/licenses/LICENSE-2.ohtml",
-    			Collections.emptyList()
+			    			"Api de HelpMe",
+			    			"Api para la App HelpMe",
+			    			"1.0",
+			    			"htpps://iudigital.edu.co",
+			    			new Contact(
+				    					"carlos velez",
+				    					"https://iudigital.edu.co",
+				    					"carlos.velez@est.iudigital.edu.co"),
+			    			"Apache 2.0",
+			    			"https://www.apache.org/licenses/LICENSE-2.ohtml",
+			    			Collections.emptyList()
     			);
     }
 }
