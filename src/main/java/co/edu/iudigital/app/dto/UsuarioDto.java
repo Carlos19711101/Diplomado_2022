@@ -19,7 +19,7 @@ public class UsuarioDto {
 	
 	private Boolean enabled;
 	
-	private String imagen;
+	private String image;
 		
 	private List<String> roles;
 
@@ -71,12 +71,12 @@ public class UsuarioDto {
 		this.enabled = enabled;
 	}
 
-	public String getImagen() {
-		return imagen;
+	public String getImage() {
+		return image;
 	}
 
-	public void setImagen(String imagen) {
-		this.imagen = imagen;
+	public void setImage(String imagen) {
+		this.image = imagen;
 	}
 
 	public List<String> getRoles() {

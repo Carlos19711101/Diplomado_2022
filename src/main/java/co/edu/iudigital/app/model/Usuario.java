@@ -88,11 +88,11 @@ public class Usuario implements Serializable {
 		this.redSocial = redSocial;
 	}
 
-	public String getImagen() {
+	public String getImage() {
 		return imagen;
 	}
 
-	public void setImagen(String imagen) {
+	public void setImage(String imagen) {
 		this.imagen = imagen;
 	}
 
